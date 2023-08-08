@@ -7,7 +7,8 @@
 // export const anotherExample = () => {
 //   return 'OMG';
 // };
-import pokedex from './data/pokemon.js/pokemon.json';
+import pokedex from './data/pokemon/pokemon.js';
+console.log(pokedex)
 
 export default pokedex;
 

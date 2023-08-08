@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Pokemon Hollow';
+    src: url('Fuente-pokemon/Pokemon\ Hollow.ttf') format('truetype');
+}
+
+
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+h1{
+    font-family: 'Pokemon Hollow';
+     font-weight: bold;
+     color: 	#1E90FF;
+     margin: 0;
+    
+}
+
+h2 {
+    font-family: 'Pokemon Hollow';
+     font-weight: bold;
+     color: 	#FFD700;
+     margin: 0;
+     text-align: center;
+}
+

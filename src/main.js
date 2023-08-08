@@ -1,16 +1,20 @@
-// import { example } from './data.js';
-// // import data from './data/lol/lol.js';
-// import data from './data/pokemon/pokemon.js';
-// // import data from './data/rickandmorty/rickandmorty.js';
+import pokedex from "./data.js"
+console.log(pokedex.pokemon[0].type[0], pokedex.pokemon[0].type[1])
+// console.log(pokedex.pokemon[6].name, pokedex.pokemon[6].tyoe[0])
 
-// console.log(example, data);
+function pokemonHtml(data) {
+    let html = ''
+    data.forEach(unoporuno => {
+        html = html + `
+    <div>
+        <img src="${unoporuno.img}" >
+        <p>"${unoporuno.name}</p>
+    </div>
+    `
+    })
 
-import pokedex from './data/pokemon.js/pokemon.json';
+    return html;
+}
 
-const pokemonGrid = document.querySelector('.pokemon-grid');
-
-pokedex.forEach(pokemon => {
-    const pokemonCard = document.createElement('div');
-    // ... (genera la tarjeta de Pokémon como antes)
-    pokemonGrid.appendChild(pokemonCard);
-});
+const root = document.getElementById('root')
+root.innerHTML = pokemonHtml(pokedex.pokemon)
