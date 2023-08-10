@@ -24,7 +24,7 @@ h1 {
   text-align: center;
 }
 
-nav {
+/* nav {
   display: block;
   flex-direction: column;
 }
@@ -39,9 +39,56 @@ nav {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-#root {
+.pokemon-grid {
   flex: 3;
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
-  justify-content: space-evenly;
+
+
+.container {
+  display: flex;
 }
+
+
+lu {
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search button {
+  width: 70px;
+    
+}
+
+#menu {
+  width: 40%;
+}
+#pokemon-grid {
+  
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.pokemon-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #1e90ff ;
+  width: 100px;;
+  text-align: center;
+  text-transform: capitalize;
+
+}
+
+.pokemon-card img {
+  width: 100px;
+}
+

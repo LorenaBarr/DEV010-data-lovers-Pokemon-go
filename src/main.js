@@ -4,13 +4,13 @@ import pokedex from "./data.js";
 
 function pokemonHtml(data) {
   let html = "";
-  data.forEach((unoporuno) => {
+  data.forEach((pokemon) => {
     html =
       html +
       `
-    <div id= "pokemonGrid">  
-        <img src="${unoporuno.img}" alt="${unoporuno.name}"> 
-        <p>${unoporuno.name}</p>
+    <div class= "pokemon-card">  
+        <img src="${pokemon.img}" alt="${pokemon.name}"> 
+        <p>${pokemon.name}</p>
     </div>
     `;
   });
@@ -18,5 +18,5 @@ function pokemonHtml(data) {
   return html;
 }
 
-const root = document.getElementById("root");
-root.innerHTML = pokemonHtml(pokedex.pokemon);
+const section = document.getElementById("pokemon-grid");
+section.innerHTML = pokemonHtml(pokedex.pokemon);
