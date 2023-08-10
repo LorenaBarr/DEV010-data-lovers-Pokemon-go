@@ -1,31 +1,47 @@
 @font-face {
-    font-family: 'Pokemon Solid';
-    src: url('Fuente-pokemon/Pokemon\Solid.ttf') format('truetype');
+  font-family: "Pokemon Solid";
+  src: url("Fuente-pokemon/Pokemon\Solid.ttf") format("truetype");
 }
 
-
-
-header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-h1{
-    font-family: 'Pokemon Solid';
-     font-weight: bold;
-     color: 	#1E90FF;
-     margin: 0;
-    
+#logo {
+  height: 200px;
+  padding: 20px;
 }
 
-h2 {
-    font-family: 'Pokemon Solid';
-     font-weight: bold;
-     color: 	#FFD700;
-     margin: 0;
-     text-align: center;
+h1 {
+  font-family: "Pokemon Solid";
+  font-weight: bold;
+  color: #1e90ff;
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
 }
 
+nav {
+  display: block;
+  flex-direction: column;
+}
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+#pokemonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+#root {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+  justify-content: space-evenly;
+}
