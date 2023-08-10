@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Pokemon Hollow';
-    src: url('Fuente-pokemon/Pokemon\ Hollow.ttf') format('truetype');
+    font-family: 'Pokemon Solid';
+    src: url('Fuente-pokemon/Pokemon\Solid.ttf') format('truetype');
 }
 
 
@@ -14,7 +14,7 @@ header{
 }
 
 h1{
-    font-family: 'Pokemon Hollow';
+    font-family: 'Pokemon Solid';
      font-weight: bold;
      color: 	#1E90FF;
      margin: 0;
@@ -22,7 +22,7 @@ h1{
 }
 
 h2 {
-    font-family: 'Pokemon Hollow';
+    font-family: 'Pokemon Solid';
      font-weight: bold;
      color: 	#FFD700;
      margin: 0;
