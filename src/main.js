@@ -1,12 +1,9 @@
-import pokedex from "./data.js";
-//console.log(pokedex.pokemon[0].type[0], pokedex.pokemon[0].type[1])
-// console.log(pokedex.pokemon[6].name, pokedex.pokemon[6].tyoe[0])
+import pokeData from "./data.js";
 
 function pokemonHtml(data) {
   let html = "";
   data.forEach((pokemon) => {
-    html =
-      html +
+    html +=
       `
     <div class= "pokemon-card">  
         <img src="${pokemon.img}" alt="${pokemon.name}"> 
@@ -19,4 +16,15 @@ function pokemonHtml(data) {
 }
 
 const section = document.getElementById("pokemon-grid");
-section.innerHTML = pokemonHtml(pokedex.pokemon);
+
+// Mostrar todos los Pokémon inicialmente
+section.innerHTML = pokemonHtml(pokeData.filterByType(""));
+
+const typeFilter = document.getElementById("typeFilter");
+const filterButton = document.getElementById("filterButton");
+
+filterButton.addEventListener("click", () => {
+  const selectedType = typeFilter.value;
+  const filteredPokemon = pokeData.filterByType(selectedType);
+  section.innerHTML = pokemonHtml(filteredPokemon);
+});

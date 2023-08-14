@@ -13,21 +13,43 @@
     <h1>Everything you need to know to become the best Pokemon Master!</h1>
     <button> START </button>
   </header> -->
-<div class="container">
-  <nav class="menu">
-    <lu>
-      <il class="search"><input type="text" placeholder="Write the pokemon name">
-        <button> Search</button>
-      </il>
-      <il> Filtrar</il>
-    </lu>
-  </nav>
+  <div class="container">
+    <nav class="menu">
+      <ul>
+        <li class="search"><input type="text" placeholder="Write the pokemon name">
+          <button> Search</button>
+        </li>
+      </ul>
+      <select id="typeFilter">
+        <option value="">All Types</option>
+        <option value="grass">Grass</option>
+        <option value="fire">Fire</option>
+        <option value="normal">Normal</option>
+        <option value="water">Water</option>
+        <option value="flying">Flying</option>
+        <option value="fighting">Fighting</option>
+        <option value="electric">Electric</option>
+        <option value="ground">Ground</option>
+        <option value="psychic">Psychic</option>
+        <option value="ice">Ice</option>
+        <option value="bug">Bug</option>
+        <option value="ghost">Ghost</option>
+        <option value="steel">Steel</option>
+        <option value="dragon">Dragon</option>
+        <option value="dark">Dark</option>
+        <option value="fairy">Fairy</option>
+        <option value="poison">Poison</option>
 
-  <section id="pokemon-grid">
+      </select>
+      <button id="filterButton">Filter</button>
+    </nav>
 
-  </section> 
-</div>
-  <div id="root"></div> 
+    <section id="pokemon-grid">
+
+    </section>
+  </div>
+
+  <div id="root"></div>
   <script src="main.js" type="module"></script>
 
 </body>
