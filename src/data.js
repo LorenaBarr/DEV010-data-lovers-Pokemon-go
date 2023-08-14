@@ -5,6 +5,7 @@ console.log(pokedex)
 export default pokedex;
 
 
+// const firePokemon = pokedex.filter(pokemon => pokemon.type === 'fire');
 
 
 
