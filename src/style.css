@@ -24,34 +24,15 @@ h1 {
   text-align: center;
 }
 
-/* nav {
-  display: block;
-  flex-direction: column;
-}
-
-.pokemon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
-
-#pokemonGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
-
-.pokemon-grid {
-  flex: 3;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
-
 
 .container {
   display: flex;
-  
+  position: relative;
+
 }
 
 
-lu {
+ul {
   display: flex;
   flex-direction: column;
 }
@@ -68,9 +49,11 @@ lu {
 }
 
 
+
 .menu {
   width: 40%;
-  background-color:#1e90ff;
+  background-color: #1e90ff;
+
 }
 
 
@@ -78,8 +61,18 @@ lu {
 
   display: flex;
   flex-wrap: wrap;
-  background-color: aqua;
+  /* Agregar bordes redondeados */
+  border-radius: 10px;
 
+  /* Agregar una sombra */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to right, #f58f9a, #fcd7da, #f3e2e8, #f9ebf2);
+  margin-left: 10px;
+
+}
+
+input {
+  border-radius: 10px;
 }
 
 
@@ -94,9 +87,69 @@ lu {
   ;
   text-align: center;
   text-transform: capitalize;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 20px;
+
 
 }
 
 .pokemon-card img {
   width: 100px;
+}
+
+button {
+  border-radius: 10px;
+  border-color: #f87da8;
+  
+}
+
+@keyframes rainbow {
+  0% {
+    border-color: #f9ebf2;
+  }
+
+  14% {
+    border-color: #f3e2e8;
+  }
+
+  28% {
+    border-color: #fcd7da;
+  }
+
+  42% {
+    border-color: #f58f9a;
+  }
+
+  57% {
+    border-color: #c03eaa;
+  }
+
+  71% {
+    border-color: rgb(255, 76, 210);
+  }
+
+  85% {
+    border-color: violet;
+  }
+
+  100% {
+    border-color: rgb(252, 146, 243);
+  }
+}
+
+.pokemon-card {
+  border: 3px solid;
+  animation: rainbow 5s linear infinite;
+}
+
+nav.menu {
+  /* Agregar bordes redondeados */
+  border-radius: 10px;
+
+  /* Agregar una sombra */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* Agregar un fondo con un gradiente */
+  background-image: linear-gradient(to right, #f9ebf2, #f3e2e8, #fcd7da, #f58f9a);
 }
