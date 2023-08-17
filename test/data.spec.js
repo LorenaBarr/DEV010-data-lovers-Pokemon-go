@@ -5,8 +5,7 @@ describe('filterByType', () => {
     const testFilter = [
       { name: 'bulbasaur', type: ['grass', 'poison'] },
       { name: 'charmander', type: ['fire'] },
-      { name: 'squirtle', type: ['water'] },
-      },
+      { name: 'squirtle', type: ['water'] }, 
     ];
 
   const filteredPokemons = pokeData.filterByType('fire', testFilter);

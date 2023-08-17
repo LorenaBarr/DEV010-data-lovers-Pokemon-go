@@ -25,9 +25,16 @@ const suggestionsList = document.querySelector(".suggestions");
 const searchButton = document.querySelector(".search button");
 const typeFilter = document.getElementById("typeFilter");
 const filterButton = document.getElementById("filterButton");
+const clearFilterButton = document.getElementById('clear-filter-button');
 
 // Obtener la lista de nombres de Pokémon de tu base de datos
 const pokemonNames = pokeData.getPokemonNames();
+
+// Función para mostrar todos los Pokémon
+function showAllPokemon() {
+  const allPokemon = pokeData.filterByType("");
+  section.innerHTML = pokemonHtml(allPokemon);
+}
 
 // Manejar el evento de autocompletado cuando el usuario escribe
 inputField.addEventListener("input", () => {
@@ -60,5 +67,17 @@ filterButton.addEventListener("click", () => {
   section.innerHTML = pokemonHtml(filteredPokemon);
 });
 
+// Agrega un manejador de eventos al botón "Limpiar Filtro"
+clearFilterButton.addEventListener('click', () => {
+  // Limpia el contenido actual del contenedor
+  section.innerHTML = '';
+
+  // Vuelve a mostrar todos los Pokémon
+  showAllPokemon();
+});
+
 // Mostrar todos los Pokémon inicialmente
-section.innerHTML = pokemonHtml(pokeData.filterByType(""));
+document.addEventListener("DOMContentLoaded", showAllPokemon);
+
+// Mostrar todos los Pokémon inicialmente
+// section.innerHTML = pokemonHtml(pokeData.filterByType(""));
