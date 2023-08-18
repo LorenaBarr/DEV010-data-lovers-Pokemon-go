@@ -1,109 +1,119 @@
+/* Definición de la fuente personalizada "Pokemon Solid" */
 @font-face {
   font-family: "Pokemon Solid";
   src: url("Fuente-pokemon/Pokemon\Solid.ttf") format("truetype");
 }
 
+/* Estilos para el encabezado */
 header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* Mostrar los elementos internos en línea */
+  align-items: center; /* Centrar verticalmente los elementos */
+  justify-content: space-evenly; /* Distribuir el espacio entre los elementos de manera uniforme */
+  background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente blanco */
+  border-radius: 50px; /* Borde redondeado */
 }
 
+/* Estilos para el logo */
 #logo {
-  height: 200px;
-  padding: 20px;
+  width: 100px; /* Ancho del logo */
+  background-color: transparent; /* Fondo transparente */
 }
 
+
+/* Estilos para los encabezados de nivel 1 */
 h1 {
-  font-family: "Pokemon Solid";
-  font-weight: bold;
-  color: #1e90ff;
-  margin: 0;
-  font-size: 20px;
-  text-align: center;
+  font-family: "Pokemon Solid"; /* Usar la fuente personalizada */
+  font-weight: bold; /* Negrita */
+  color: #1e90ff; /* Color azul */
+  margin: 0; /* Margen cero para el encabezado */
+  font-size: 20px; /* Tamaño de fuente */
+  text-align: center; /* Centrar el texto */
 }
 
-
+/* Estilos para el contenedor principal */
 .container {
-  display: flex;
-  position: relative;
-
+  flex-direction: column; /* Columnas flexibles */
+  align-items: center; /* Centrar elementos horizontalmente */
+  /* position: relative; */
 }
 
+/* Estilos generales para el cuerpo de la página */
+body {
+  background-image: url("https://i.gadgets360cdn.com/large/pokemon_go_steelix_gengar_loading_screens_1499239730143.jpg"); /* Imagen de fondo */
+  background-size: 100vw 100vh; /* Tamaño de la imagen de fondo */
+}
 
+/* Estilos para listas no ordenadas */
 ul {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Mostrar los elementos en línea */
+  flex-direction: column; /* Organizar en columna */
 }
 
+/* Estilos para el campo de búsqueda */
 .search {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; /* Mostrar los elementos en línea */
+  align-items: center; /* Centrar verticalmente los elementos */
 }
 
 .search button {
-  width: 70px;
-
+  width: 70px; /* Ancho del botón de búsqueda */
 }
 
+/* Estilos para botones específicos */
+#filterButton, #orderButton, #ascendingButton, #descendingButton {
+  margin-left: -65px; /* Mover los botones hacia la izquierda */
+}
 
-
+/* Estilos para el menú */
 .menu {
-  width: 40%;
-  background-color: #1e90ff;
-
+  display: flex; /* Mostrar los elementos en línea */
+  justify-content: space-between; /* Distribuir el espacio entre los elementos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  width: 100%; /* Ancho completo del menú */
+  margin-bottom: 10px; /* Margen inferior */
 }
 
-
+/* Estilos para el contenedor de los Pokémon */
 #pokemon-grid {
-
-  display: flex;
-  flex-wrap: wrap;
-  /* Agregar bordes redondeados */
-  border-radius: 10px;
-
-  /* Agregar una sombra */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-image: linear-gradient(to right, #f58f9a, #fcd7da, #f3e2e8, #f9ebf2);
-  margin-left: 10px;
-
+  display: flex; /* Mostrar los elementos en línea */
+  flex-wrap: wrap; /* Envolver los elementos en varias líneas */
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  border-radius: 10px; /* Borde redondeado */
 }
 
+/* Estilos para campos de entrada */
 input {
-  border-radius: 10px;
+  border-radius: 10px; /* Borde redondeado */
 }
 
-
-
+/* Estilos para las tarjetas de Pokémon */
 .pokemon-card {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #1e90ff;
-  width: 100px;
-  ;
-  text-align: center;
-  text-transform: capitalize;
-  border: 1px solid black;
-  margin: 10px;
-  border-radius: 20px;
-
-
+  display: flex; /* Mostrar los elementos en línea */
+  align-items: center; /* Centrar verticalmente los elementos */
+  flex-direction: column; /* Organizar en columna */
+  align-items: center; /* Centrar horizontalmente los elementos */
+  border: 1px solid #1e90ff; /* Borde sólido azul */
+  width: 100px; /* Ancho de la tarjeta */
+  text-align: center; /* Centrar el texto */
+  text-transform: capitalize; /* Transformar el texto en mayúscula la primera letra */
+  border: 1px solid black; /* Borde sólido negro */
+  margin: 10px; /* Margen */
+  border-radius: 20px; /* Borde redondeado */
+  background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente blanco */
 }
 
+/* Estilos para imágenes de Pokémon en las tarjetas */
 .pokemon-card img {
-  width: 100px;
+  width: 100px; /* Ancho de la imagen */
 }
 
+/* Estilos generales para botones */
 button {
-  border-radius: 10px;
-  border-color: #f87da8;
-
+  border-radius: 10px; /* Borde redondeado */
+  border-color: #f87da8; /* Color del borde */
 }
-
+ 
+/* Definición de la animación "rainbow" */
 @keyframes rainbow {
   0% {
     border-color: #f9ebf2;
@@ -138,18 +148,9 @@ button {
   }
 }
 
+
+/* Aplicar animación "rainbow" a las tarjetas de Pokémon */
 .pokemon-card {
   border: 3px solid;
   animation: rainbow 5s linear infinite;
-}
-
-nav.menu {
-  /* Agregar bordes redondeados */
-  border-radius: 10px;
-
-  /* Agregar una sombra */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-  /* Agregar un fondo con un gradiente */
-  background-image: linear-gradient(to right, #f9ebf2, #f3e2e8, #fcd7da, #f58f9a);
 }
