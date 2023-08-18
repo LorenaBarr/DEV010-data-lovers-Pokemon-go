@@ -2,6 +2,7 @@
 import pokeData from "./data.js";
 
 // Función para generar el HTML de los Pokémon
+//
 function pokemonHtml(data) {
   let html = "";
   data.forEach((pokemon) => {
@@ -20,6 +21,7 @@ function pokemonHtml(data) {
 const section = document.getElementById("pokemon-grid");
 
 // Obtener referencias a los elementos relevantes del DOM
+const datalist = document.getElementById("pokemonNames")
 const inputField = document.querySelector(".search input");
 const suggestionsList = document.querySelector(".suggestions");
 const searchButton = document.querySelector(".search button");
@@ -29,6 +31,12 @@ const clearFilterButton = document.getElementById('clear-filter-button');
 
 // Obtener la lista de nombres de Pokémon de tu base de datos
 const pokemonNames = pokeData.getPokemonNames();
+// Llenar el datalist con los nombres de los Pokémon
+pokemonNames.forEach(name => {
+  const option = document.createElement("option");
+  option.value = name;
+  datalist.appendChild(option);
+});
 
 // Función para mostrar todos los Pokémon
 function showAllPokemon() {
@@ -36,9 +44,17 @@ function showAllPokemon() {
   section.innerHTML = pokemonHtml(allPokemon);
 }
 
-// Manejar el evento de autocompletado cuando el usuario escribe
+// Manejar el evento de autocompletado y limpiar el filtro cuando el usuario borre el input
 inputField.addEventListener("input", () => {
   const inputText = inputField.value.toLowerCase();
+  suggestionsList.innerHTML = "";
+
+  if (inputText === "") {
+    showAllPokemon();
+    return;
+  }
+
+
   const filteredNames = pokemonNames.filter(name => name.toLowerCase().includes(inputText));
   suggestionsList.innerHTML = "";
   filteredNames.forEach(name => {
@@ -47,6 +63,7 @@ inputField.addEventListener("input", () => {
     suggestionItem.textContent = name;
     suggestionItem.addEventListener("click", () => {
       inputField.value = name;
+      inputField.style.height = "30px";
       suggestionsList.innerHTML = "";
     });
     suggestionsList.appendChild(suggestionItem);
