@@ -28,6 +28,14 @@ const searchButton = document.querySelector(".search button");
 const typeFilter = document.getElementById("typeFilter");
 const filterButton = document.getElementById("filterButton");
 const clearFilterButton = document.getElementById("clear-filter-button");
+// Obtener referencias a los elementos dentro del dialog
+const dialog = document.getElementById("dialog");
+const pokeName = document.getElementById("pokeName");
+const pokeNumber = document.getElementById("pokeNumber");
+const pokeImg = document.getElementById("pokeImg");
+const resistantWeak = document.getElementById("resistant-Weak");
+const move = document.getElementById("move");
+const evolution = document.getElementById("evolution");
 
 // Obtener la lista de nombres de Pokémon de tu base de datos
 const pokemonNames = pokeData.getPokemonNames();
