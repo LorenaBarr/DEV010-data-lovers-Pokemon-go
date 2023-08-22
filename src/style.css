@@ -9,8 +9,13 @@ header {
   display: flex; /* Mostrar los elementos internos en línea */
   align-items: center; /* Centrar verticalmente los elementos */
   justify-content: space-evenly; /* Distribuir el espacio entre los elementos de manera uniforme */
-  background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente blanco */
-  border-radius: 50px; /* Borde redondeado */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Fondo semitransparente blanco */
+  border-radius: 10px; /* Borde redondeado */
 }
 
 /* Estilos para el logo */
@@ -19,15 +24,15 @@ header {
   background-color: transparent; /* Fondo transparente */
 }
 
-
 /* Estilos para los encabezados de nivel 1 */
 h1 {
   font-family: "Pokemon Solid"; /* Usar la fuente personalizada */
   font-weight: bold; /* Negrita */
   color: #1e90ff; /* Color azul */
   margin: 0; /* Margen cero para el encabezado */
-  font-size: 20px; /* Tamaño de fuente */
+  font-size: 25px; /* Tamaño de fuente */
   text-align: center; /* Centrar el texto */
+  text-shadow: 2px 2px black;
 }
 
 /* Estilos para el contenedor principal */
@@ -56,11 +61,14 @@ ul {
 }
 
 .search button {
-  width: 70px; /* Ancho del botón de búsqueda */
+  width: 80px; /* Ancho del botón de búsqueda */
 }
 
 /* Estilos para botones específicos */
-#filterButton, #orderButton, #ascendingButton, #descendingButton {
+#filterButton,
+#orderButton,
+#ascendingButton,
+#descendingButton {
   margin-left: -65px; /* Mover los botones hacia la izquierda */
 }
 
@@ -99,7 +107,12 @@ input {
   border: 1px solid black; /* Borde sólido negro */
   margin: 10px; /* Margen */
   border-radius: 20px; /* Borde redondeado */
-  background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente blanco */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Fondo semitransparente blanco */
 }
 
 /* Estilos para imágenes de Pokémon en las tarjetas */
@@ -111,8 +124,11 @@ input {
 button {
   border-radius: 10px; /* Borde redondeado */
   border-color: #f87da8; /* Color del borde */
+  padding: 5px 15px;
+  margin: 10px;
+  text-align: center;
 }
- 
+
 /* Definición de la animación "rainbow" */
 @keyframes rainbow {
   0% {
@@ -147,7 +163,6 @@ button {
     border-color: rgb(252, 146, 243);
   }
 }
-
 
 /* Aplicar animación "rainbow" a las tarjetas de Pokémon */
 .pokemon-card {

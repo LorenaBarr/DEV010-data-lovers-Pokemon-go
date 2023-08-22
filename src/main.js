@@ -1,13 +1,13 @@
 // Importar el módulo pokeData que contiene las funciones y datos de los Pokémon
 import pokeData from "./data.js";
+import pokemons from "./data/pokemon/pokemon.js";
 
 // Función para generar el HTML de los Pokémon
 //
 function pokemonHtml(data) {
   let html = "";
   data.forEach((pokemon) => {
-    html +=
-      `
+    html += `
     <div class= "pokemon-card">  
         <img src="${pokemon.img}" alt="${pokemon.name}"> 
         <p>${pokemon.name}</p>
@@ -21,18 +21,18 @@ function pokemonHtml(data) {
 const section = document.getElementById("pokemon-grid");
 
 // Obtener referencias a los elementos relevantes del DOM
-const datalist = document.getElementById("pokemonNames")
+const datalist = document.getElementById("pokemonNames");
 const inputField = document.querySelector(".search input");
 const suggestionsList = document.querySelector(".suggestions");
 const searchButton = document.querySelector(".search button");
 const typeFilter = document.getElementById("typeFilter");
 const filterButton = document.getElementById("filterButton");
-const clearFilterButton = document.getElementById('clear-filter-button');
+const clearFilterButton = document.getElementById("clear-filter-button");
 
 // Obtener la lista de nombres de Pokémon de tu base de datos
 const pokemonNames = pokeData.getPokemonNames();
 // Llenar el datalist con los nombres de los Pokémon
-pokemonNames.forEach(name => {
+pokemonNames.forEach((name) => {
   const option = document.createElement("option");
   option.value = name;
   datalist.appendChild(option);
@@ -54,26 +54,30 @@ inputField.addEventListener("input", () => {
     return;
   }
 
-
-  const filteredNames = pokemonNames.filter(name => name.toLowerCase().includes(inputText));
-  suggestionsList.innerHTML = "";
-  filteredNames.forEach(name => {
-    const suggestionItem = document.createElement("div");
-    suggestionItem.classList.add("suggestion-item");
-    suggestionItem.textContent = name;
-    suggestionItem.addEventListener("click", () => {
-      inputField.value = name;
-      inputField.style.height = "30px";
-      suggestionsList.innerHTML = "";
-    });
-    suggestionsList.appendChild(suggestionItem);
-  });
+  const filteredNames = pokemonNames.filter((name) =>
+    name.toLowerCase().includes(inputText)
+  );
+  // suggestionsList.innerHTML = "";
+  // filteredNames.forEach((name) => {
+  //   const suggestionItem = document.createElement("div");
+  //   suggestionItem.classList.add("suggestion-item");
+  //   suggestionItem.textContent = name;
+  //   suggestionItem.addEventListener("click", () => {
+  //     inputField.value = name;
+  //     inputField.style.height = "30px";
+  //     suggestionsList.innerHTML = "";
+  //   });
+  //   suggestionsList.appendChild(suggestionItem);
+  // });
 });
 
 // Manejar el evento de búsqueda cuando el usuario presiona el botón "Search"
 searchButton.addEventListener("click", () => {
   const selectedPokemonName = inputField.value.toLowerCase();
-  const selectedPokemon = pokeData.filterByPokemonName(selectedPokemonName);
+  const selectedPokemon = pokeData.filterByPokemonName(
+    selectedPokemonName,
+    pokemons
+  );
   section.innerHTML = pokemonHtml(selectedPokemon);
 });
 
@@ -85,9 +89,9 @@ filterButton.addEventListener("click", () => {
 });
 
 // Agrega un manejador de eventos al botón "Limpiar Filtro"
-clearFilterButton.addEventListener('click', () => {
+clearFilterButton.addEventListener("click", () => {
   // Limpia el contenido actual del contenedor
-  section.innerHTML = '';
+  section.innerHTML = "";
 
   // Vuelve a mostrar todos los Pokémon
   showAllPokemon();
