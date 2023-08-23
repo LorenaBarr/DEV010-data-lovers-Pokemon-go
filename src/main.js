@@ -29,6 +29,7 @@ const typeFilter = document.getElementById("typeFilter");
 const filterButton = document.getElementById("filterButton");
 const clearFilterButton = document.getElementById("clear-filter-button");
 // Obtener referencias a los elementos dentro del dialog
+const pokemonCards = document.querySelectorAll(".pokemon-card");
 const dialog = document.getElementById("dialog");
 const pokeName = document.getElementById("pokeName");
 const pokeNumber = document.getElementById("pokeNumber");
@@ -96,6 +97,37 @@ filterButton.addEventListener("click", () => {
   section.innerHTML = pokemonHtml(filteredPokemon);
 });
 
+
+
+// Agregar evento de clic a las tarjetas de Pokémon
+pokemonCards.forEach(pokemonCard => {
+  pokemonCard.addEventListener("click", () => {
+    // Obtener el nombre del Pokémon desde la tarjeta
+    const selectedPokemonName = pokemonCard.querySelector("p").textContent;
+
+    // Obtener la información del Pokémon según su nombre
+    const selectedPokemonInfo = pokeData.getPokemonInfoByName(selectedPokemonName);
+
+    console.log(selectedPokemonInfo); 
+    if (selectedPokemonInfo) {
+      // Asignar los valores al diálogo
+      pokeName.textContent = selectedPokemonInfo.name;
+      pokeNumber.textContent = `Pokédex Number: ${selectedPokemonInfo.num}`;
+      pokeImg.src = selectedPokemonInfo.img;
+      resistantWeak.textContent = "Resistance: " + selectedPokemonInfo.resistant.join(", ") +
+        "\nWeaknesses: " + selectedPokemonInfo.weaknesses.join(", ");
+      move.textContent = "Quick Move: " + selectedPokemonInfo["quick-move"][0].name +
+        "\nSpecial Attack: " + selectedPokemonInfo["special-attack"][0].name;
+        
+        // Abrir el diálogo
+      dialog.showModal();
+
+      dialog.querySelector(".close").addEventListener("click", () => {
+        dialog.close();
+      });
+    }
+  });
+});
 // Agrega un manejador de eventos al botón "Limpiar Filtro"
 clearFilterButton.addEventListener("click", () => {
   // Limpia el contenido actual del contenedor
@@ -104,6 +136,8 @@ clearFilterButton.addEventListener("click", () => {
   // Vuelve a mostrar todos los Pokémon
   showAllPokemon();
 });
+
+
 
 // Mostrar todos los Pokémon inicialmente
 document.addEventListener("DOMContentLoaded", showAllPokemon);
