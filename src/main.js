@@ -28,6 +28,7 @@ const clearFilterButton = document.getElementById("clearFilterButton");
 const orderButton = document.getElementById("orderButton");
 
 // Obtener referencias a los elementos dentro del dialog
+const pokemonCards = document.querySelectorAll(".pokemon-card");
 const dialog = document.getElementById("dialog");
 const pokeName = document.getElementById("pokeName");
 const pokeNumber = document.getElementById("pokeNumber");
@@ -65,18 +66,6 @@ inputField.addEventListener("input", () => {
   const filteredNames = pokemonNames.filter((name) =>
     name.toLowerCase().includes(inputText)
   );
-  // suggestionsList.innerHTML = "";
-  // filteredNames.forEach((name) => {
-  //   const suggestionItem = document.createElement("div");
-  //   suggestionItem.classList.add("suggestion-item");
-  //   suggestionItem.textContent = name;
-  //   suggestionItem.addEventListener("click", () => {
-  //     inputField.value = name;
-  //     inputField.style.height = "30px";
-  //     suggestionsList.innerHTML = "";
-  //   });
-  //   suggestionsList.appendChild(suggestionItem);
-  // });
 });
 
 // Manejar el evento de búsqueda cuando el usuario presiona el botón "Search"
@@ -136,6 +125,44 @@ orderButton.addEventListener("click", () => {
 });
 
 // editing space -------------------------------------------------------------------
+
+pokemonCards.forEach((pokemonCard) => {
+  console.log("Card clicked:", pokemonCard);
+  pokemonCard.addEventListener("click", () => {
+    const selectedPokemonName = pokemonCard.querySelector("p").textContent;
+    const selectedPokemonInfo =
+      pokeData.getPokemonInfoByName(selectedPokemonName);
+
+    if (selectedPokemonInfo) {
+      pokeName.textContent = selectedPokemonInfo.name;
+      pokeNumber.textContent = `Pokédex Number: ${selectedPokemonInfo.num}`;
+      pokeImg.src = selectedPokemonInfo.img;
+      resistantWeak.textContent =
+        "Resistance: " +
+        selectedPokemonInfo.resistant.join(", ") +
+        "\nWeaknesses: " +
+        selectedPokemonInfo.weaknesses.join(", ");
+      move.textContent =
+        "Quick Move: " +
+        selectedPokemonInfo["quick-move"][0].name +
+        "\nSpecial Attack: " +
+        selectedPokemonInfo["special-attack"][0].name;
+
+      const evolutions = selectedPokemonInfo.evolution;
+      const evolutionText = evolutions["next-evolution"]
+        .map((evo) => evo.name)
+        .join(", ");
+      evolution.textContent = "Evolutions: " + evolutionText;
+
+      dialog.showModal();
+
+      // Agregar evento para cerrar el diálogo
+      dialog.querySelector(".close").addEventListener("click", () => {
+        dialog.close();
+      });
+    }
+  });
+});
 
 // Agrega un manejador de eventos al botón "Limpiar Filtro"
 clearFilterButton.addEventListener("click", () => {

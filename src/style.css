@@ -1,8 +1,8 @@
 /* Definición de la fuente personalizada "Pokemon Solid" */
-@font-face {
+/* @font-face {
   font-family: "Pokemon Solid";
   src: url("Fuente-pokemon/Pokemon\Solid.ttf") format("truetype");
-}
+} */
 
 /* Estilos para el encabezado */
 header {
@@ -44,7 +44,7 @@ h1 {
 
 /* Estilos generales para el cuerpo de la página */
 body {
-  background-image: url("https://i.gadgets360cdn.com/large/pokemon_go_steelix_gengar_loading_screens_1499239730143.jpg"); /* Imagen de fondo */
+  background-image: url("https://www.roomforzoom.com/backgrounds/Pokemon-Go-Computer-generated-background-230.jpg"); /* Imagen de fondo */
   background-size: 100vw 100vh; /* Tamaño de la imagen de fondo */
 }
 
@@ -174,4 +174,60 @@ datalist {
   max-height: 10px; /* Define la altura máxima deseada */
   overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
   width: 10%; /* Establece el ancho completo */
+}
+
+#dialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#dialog img {
+  max-width: 100%;
+  height: auto;
+}
+
+#dialog #dialogClose {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.pokemon-dialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-dialog button.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.pokemon-info {
+  text-align: center;
+}
+
+.pokemon-info img {
+  max-width: 100%;
+  height: auto;
 }

@@ -29,6 +29,13 @@ const pokeData = {
     return pokedex.pokemon.map((pokemon) => pokemon.name);
   },
 
+  // Función para obtener la información de un Pokémon por su nombre
+  getPokemonInfoByName: function (name) {
+    const lowerCaseName = name.toLowerCase();
+    const pokemonInfo = pokedex.pokemon.find(pokemon => pokemon.name === lowerCaseName);
+    return pokemonInfo || null; // Si no se encuentra el Pokémon, devuelve null
+  },
+
   // Función para filtrar Pokémon por nombre
   //La función filterByPokemonName recibe un parámetro name y
   //filtra los Pokémon en base a su nombre. Utiliza el método filter para iterar sobre la lista de Pokémon
@@ -46,6 +53,7 @@ const pokeData = {
     return pokemons.slice().sort();
   },
 };
+
 
 // Exportar el objeto pokeData para su uso en otros archivos
 export default pokeData;
