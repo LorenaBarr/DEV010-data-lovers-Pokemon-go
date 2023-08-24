@@ -40,6 +40,11 @@ const pokeData = {
       (pokemon) => pokemon.name.toLowerCase() === name
     );
   },
+
+  //función para ordenar pokemones
+  sortAscending: function (pokemons) {
+    return pokemons.slice().sort();
+  },
 };
 
 // Exportar el objeto pokeData para su uso en otros archivos
