@@ -6,62 +6,82 @@
 
 /* Estilos para el encabezado */
 header {
-  display: flex; /* Mostrar los elementos internos en línea */
-  align-items: center; /* Centrar verticalmente los elementos */
-  justify-content: space-evenly; /* Distribuir el espacio entre los elementos de manera uniforme */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.5
-  ); /* Fondo semitransparente blanco */
-  border-radius: 10px; /* Borde redondeado */
+  display: flex;
+  /* Mostrar los elementos internos en línea */
+  align-items: center;
+  /* Centrar verticalmente los elementos */
+  justify-content: space-evenly;
+  /* Distribuir el espacio entre los elementos de manera uniforme */
+  background-color: rgba(255,
+      255,
+      255,
+      0.5);
+  /* Fondo semitransparente blanco */
+  border-radius: 10px;
+  /* Borde redondeado */
 }
 
 /* Estilos para el logo */
 #logo {
-  width: 100px; /* Ancho del logo */
-  background-color: transparent; /* Fondo transparente */
+  width: 100px;
+  /* Ancho del logo */
+  background-color: transparent;
+  /* Fondo transparente */
 }
 
 /* Estilos para los encabezados de nivel 1 */
 h1 {
-  font-family: "Pokemon Solid"; /* Usar la fuente personalizada */
-  font-weight: bold; /* Negrita */
-  color: #1e90ff; /* Color azul */
-  margin: 0; /* Margen cero para el encabezado */
-  font-size: 25px; /* Tamaño de fuente */
-  text-align: center; /* Centrar el texto */
+  font-family: "Pokemon Solid";
+  /* Usar la fuente personalizada */
+  font-weight: bold;
+  /* Negrita */
+  color: #1e90ff;
+  /* Color azul */
+  margin: 0;
+  /* Margen cero para el encabezado */
+  font-size: 25px;
+  /* Tamaño de fuente */
+  text-align: center;
+  /* Centrar el texto */
   text-shadow: 2px 2px black;
 }
 
 /* Estilos para el contenedor principal */
 .container {
-  flex-direction: column; /* Columnas flexibles */
-  align-items: center; /* Centrar elementos horizontalmente */
+  flex-direction: column;
+  /* Columnas flexibles */
+  align-items: center;
+  /* Centrar elementos horizontalmente */
   /* position: relative; */
 }
 
 /* Estilos generales para el cuerpo de la página */
 body {
-  background-image: url("https://www.roomforzoom.com/backgrounds/Pokemon-Go-Computer-generated-background-230.jpg"); /* Imagen de fondo */
-  background-size: 100vw 100vh; /* Tamaño de la imagen de fondo */
+  background-image: url("https://www.roomforzoom.com/backgrounds/Pokemon-Go-Computer-generated-background-230.jpg");
+  /* Imagen de fondo */
+  background-size: 100vw 100vh;
+  /* Tamaño de la imagen de fondo */
 }
 
 /* Estilos para listas no ordenadas */
 ul {
-  display: flex; /* Mostrar los elementos en línea */
-  flex-direction: column; /* Organizar en columna */
+  display: flex;
+  /* Mostrar los elementos en línea */
+  flex-direction: column;
+  /* Organizar en columna */
 }
 
 /* Estilos para el campo de búsqueda */
 .search {
-  display: flex; /* Mostrar los elementos en línea */
-  align-items: center; /* Centrar verticalmente los elementos */
+  display: flex;
+  /* Mostrar los elementos en línea */
+  align-items: center;
+  /* Centrar verticalmente los elementos */
 }
 
 .search button {
-  width: 80px; /* Ancho del botón de búsqueda */
+  width: 80px;
+  /* Ancho del botón de búsqueda */
 }
 
 /* Estilos para botones específicos */
@@ -69,61 +89,85 @@ ul {
 #orderButton,
 #ascendingButton,
 #descendingButton {
-  margin-left: -65px; /* Mover los botones hacia la izquierda */
+  margin-left: -65px;
+  /* Mover los botones hacia la izquierda */
 }
 
 /* Estilos para el menú */
 .menu {
-  display: flex; /* Mostrar los elementos en línea */
-  justify-content: space-between; /* Distribuir el espacio entre los elementos */
-  align-items: center; /* Centrar verticalmente los elementos */
-  width: 100%; /* Ancho completo del menú */
-  margin-bottom: 10px; /* Margen inferior */
+  display: flex;
+  /* Mostrar los elementos en línea */
+  justify-content: space-between;
+  /* Distribuir el espacio entre los elementos */
+  align-items: center;
+  /* Centrar verticalmente los elementos */
+  width: 100%;
+  /* Ancho completo del menú */
+  margin-bottom: 10px;
+  /* Margen inferior */
 }
 
 /* Estilos para el contenedor de los Pokémon */
 #pokemon-grid {
-  display: flex; /* Mostrar los elementos en línea */
-  flex-wrap: wrap; /* Envolver los elementos en varias líneas */
-  justify-content: center; /* Centrar horizontalmente los elementos */
-  border-radius: 10px; /* Borde redondeado */
+  display: flex;
+  /* Mostrar los elementos en línea */
+  flex-wrap: wrap;
+  /* Envolver los elementos en varias líneas */
+  justify-content: center;
+  /* Centrar horizontalmente los elementos */
+  border-radius: 10px;
+  /* Borde redondeado */
 }
 
 /* Estilos para campos de entrada */
 input {
-  border-radius: 10px; /* Borde redondeado */
+  border-radius: 10px;
+  /* Borde redondeado */
 }
 
 /* Estilos para las tarjetas de Pokémon */
 .pokemon-card {
-  display: flex; /* Mostrar los elementos en línea */
-  align-items: center; /* Centrar verticalmente los elementos */
-  flex-direction: column; /* Organizar en columna */
-  align-items: center; /* Centrar horizontalmente los elementos */
-  border: 1px solid #1e90ff; /* Borde sólido azul */
-  width: 100px; /* Ancho de la tarjeta */
-  text-align: center; /* Centrar el texto */
-  text-transform: capitalize; /* Transformar el texto en mayúscula la primera letra */
-  border: 1px solid black; /* Borde sólido negro */
-  margin: 10px; /* Margen */
-  border-radius: 20px; /* Borde redondeado */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.5
-  ); /* Fondo semitransparente blanco */
+  display: flex;
+  /* Mostrar los elementos en línea */
+  align-items: center;
+  /* Centrar verticalmente los elementos */
+  flex-direction: column;
+  /* Organizar en columna */
+  align-items: center;
+  /* Centrar horizontalmente los elementos */
+  border: 1px solid #1e90ff;
+  /* Borde sólido azul */
+  width: 100px;
+  /* Ancho de la tarjeta */
+  text-align: center;
+  /* Centrar el texto */
+  text-transform: capitalize;
+  /* Transformar el texto en mayúscula la primera letra */
+  border: 1px solid black;
+  /* Borde sólido negro */
+  margin: 10px;
+  /* Margen */
+  border-radius: 20px;
+  /* Borde redondeado */
+  background-color: rgba(255,
+      255,
+      255,
+      0.5);
+  /* Fondo semitransparente blanco */
 }
 
 /* Estilos para imágenes de Pokémon en las tarjetas */
 .pokemon-card img {
-  width: 100px; /* Ancho de la imagen */
+  width: 100px;
+  /* Ancho de la imagen */
 }
 
 /* Estilos generales para botones */
 button {
-  border-radius: 10px; /* Borde redondeado */
-  border-color: #f87da8; /* Color del borde */
+  border-radius: 10px;
+  /* Borde redondeado */
+  border-color: #f87da8;
+  /* Color del borde */
   padding: 5px 15px;
   margin: 10px;
   text-align: center;
@@ -171,13 +215,16 @@ button {
 }
 
 datalist {
-  max-height: 10px; /* Define la altura máxima deseada */
-  overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
-  width: 10%; /* Establece el ancho completo */
+  max-height: 10px;
+  /* Define la altura máxima deseada */
+  overflow-y: auto;
+  /* Agrega una barra de desplazamiento vertical si es necesario */
+  width: 10%;
+  /* Establece el ancho completo */
 }
 
 #dialog {
-  display: none;
+
   position: fixed;
   top: 50%;
   left: 50%;
@@ -202,8 +249,9 @@ datalist {
   padding: 5px 10px;
   cursor: pointer;
 }
+
 .pokemon-dialog {
-  display: none;
+
   position: fixed;
   top: 50%;
   left: 50%;

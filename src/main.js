@@ -1,5 +1,6 @@
 // Importar el módulo pokeData que contiene las funciones y datos de los Pokémon
 import pokeData from "./data.js";
+import pokemon from "./data/pokemon/pokemon.js";
 import pokemons from "./data/pokemon/pokemon.js";
 // Función para generar el HTML de los Pokémon
 function pokemonHtml(data) {
@@ -14,6 +15,10 @@ function pokemonHtml(data) {
     `;
   });
   return html;
+}
+
+function showPoke() {
+  console.log("holi")
 }
 
 // Obtener la referencia a la sección donde se mostrarán los Pokémon
@@ -66,32 +71,7 @@ function showAllPokemon() {
         pokeData.getPokemonInfoByName(selectedPokemonName);
       // showCard(selectedPokemonInfo);
 
-      if (selectedPokemonInfo) {
-        pokeName.textContent = selectedPokemonInfo.name;
-        pokeNumber.textContent = `Pokédex Number: ${selectedPokemonInfo.num}`;
-        pokeImg.src = selectedPokemonInfo.img;
-        resistantWeak.textContent =
-          "Resistance: " +
-          selectedPokemonInfo.resistant.join(", ") +
-          "\nWeaknesses: " +
-          selectedPokemonInfo.weaknesses.join(", ");
-        move.textContent =
-          "Quick Move: " +
-          selectedPokemonInfo["quick-move"][0].name +
-          "\nSpecial Attack: " +
-          selectedPokemonInfo["special-attack"][0].name;
 
-        const evolutions = selectedPokemonInfo.evolution;
-        const evolutionText = evolutions["next-evolution"]
-          .map((evo) => evo.name)
-          .join(", ");
-        evolution.textContent = "Evolutions: " + evolutionText;
-
-        dialog.showModal();
-
-        // Agregar evento para cerrar el diálogo
-
-      }
     });
   });
 
@@ -104,7 +84,7 @@ dialog.querySelector("#dialogClose").addEventListener("click", () => {
 // Manejar el evento de autocompletado y limpiar el filtro cuando el usuario borre el input
 inputField.addEventListener("input", () => {
   const inputText = inputField.value.toLowerCase();
-  
+
 
   if (inputText === "") {
     showAllPokemon();
@@ -192,12 +172,63 @@ function showCard(pokemon) {
   console.log(pokemon);
 }
 
+function openDialog(pokemonInfo) {
+  if (pokemonInfo) {
+    pokeName.textContent = pokemonInfo.name;
+    pokeNumber.textContent = `Pokédex Number: ${pokemonInfo.num}`;
+    pokeImg.src = pokemonInfo.img;
+    resistantWeak.textContent =
+      "Resistance: " +
+      pokemonInfo.resistant.join(", ") +
+      "\nWeaknesses: " +
+      pokemonInfo.weaknesses.join(", ");
+    move.textContent =
+      "Quick Move: " +
+      pokemonInfo["quick-move"][0].name +
+      "\nSpecial Attack: " +
+      pokemonInfo["special-attack"][0].name;
+
+    const evolutions = pokemonInfo.evolution;
+    const evolutionText = evolutions["next-evolution"]
+      ? evolutions["next-evolution"].map((evo) => evo.name).join(", ")
+      : "None";
+    evolution.textContent = "Evolutions: " + evolutionText;
+
+    dialog.showModal();
+
+    // Agregar evento para cerrar el diálogo
+
+  }
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
+
   showAllPokemon()
+  console.log("holi")
+  const pokemonCards = document.querySelectorAll(".pokemon-card")
+  console.log(pokemonCards)
+
+  for (const pokemonCard of pokemonCards) {
+    pokemonCard.addEventListener("click", () => {
+      const pokemonName = pokemonCard.querySelector("p").textContent;
+      const selectedPokemonInfo =
+        pokeData.getPokemonInfoByName(pokemonName);
+      openDialog(selectedPokemonInfo)
+
+    })
+
+
+  }
+
 
 
 });
+
+
+
+
+
 
 // Mostrar todos los Pokémon inicialmente
 // section.innerHTML = pokemonHtml(pokeData.filterByType(""));
