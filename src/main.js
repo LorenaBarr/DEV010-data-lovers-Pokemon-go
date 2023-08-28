@@ -54,26 +54,29 @@ pokemonNames.forEach((name) => {
   datalist.appendChild(option);
 });
 
+function showPokemons(pokemonList) {
+  section.innerHTML = pokemonHtml(pokemonList)
+  const pokemonCards = document.querySelectorAll(".pokemon-card")
+  console.log(pokemonCards)
+
+  for (const pokemonCard of pokemonCards) {
+    pokemonCard.addEventListener("click", () => {
+      const pokemonName = pokemonCard.querySelector("p").textContent;
+      const selectedPokemonInfo =
+        pokeData.getPokemonInfoByName(pokemonName);
+      openDialog(selectedPokemonInfo)
+
+    })
+
+
+  }
+}
+
 // Función para mostrar todos los Pokémon
 function showAllPokemon() {
   // console.log("showAllPokemon");
   const allPokemon = pokeData.filterByType("");
-  section.innerHTML = pokemonHtml(allPokemon);
-
-  const pokemonCards = document.querySelectorAll(".pokemon-card");
-  // console.log(pokemonCards)
-
-  pokemonCards.forEach((pokemonCard) => {
-    // console.log("holi");
-    pokemonCard.addEventListener("click", () => {
-      const selectedPokemonName = pokemonCard.querySelector("p").textContent;
-      const selectedPokemonInfo =
-        pokeData.getPokemonInfoByName(selectedPokemonName);
-      // showCard(selectedPokemonInfo);
-
-
-    });
-  });
+  showPokemons(allPokemon)
 
 }
 
@@ -104,14 +107,14 @@ searchButton.addEventListener("click", () => {
     selectedPokemonName,
     pokemons
   );
-  section.innerHTML = pokemonHtml(selectedPokemon);
+  showPokemons(selectedPokemon);
 });
 
 // Manejar el evento de filtrado por tipo de Pokémon
 filterButton.addEventListener("click", () => {
   const selectedType = typeFilter.value;
   const filteredPokemon = pokeData.filterByType(selectedType);
-  section.innerHTML = pokemonHtml(filteredPokemon);
+  showPokemons(filteredPokemon);
 });
 
 // editing space -------------------------------------------------------------------
@@ -150,7 +153,7 @@ orderButton.addEventListener("click", () => {
   }
 
   // Generate the HTML for the sorted Pokémon list
-  section.innerHTML = pokemonHtml(currentPokemonList);
+  showPokemons(currentPokemonList);
 });
 
 // editing space -------------------------------------------------------------------
@@ -206,20 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showAllPokemon()
   console.log("holi")
-  const pokemonCards = document.querySelectorAll(".pokemon-card")
-  console.log(pokemonCards)
 
-  for (const pokemonCard of pokemonCards) {
-    pokemonCard.addEventListener("click", () => {
-      const pokemonName = pokemonCard.querySelector("p").textContent;
-      const selectedPokemonInfo =
-        pokeData.getPokemonInfoByName(pokemonName);
-      openDialog(selectedPokemonInfo)
-
-    })
-
-
-  }
 
 
 
@@ -230,5 +220,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Mostrar todos los Pokémon inicialmente
-// section.innerHTML = pokemonHtml(pokeData.filterByType(""));
+
