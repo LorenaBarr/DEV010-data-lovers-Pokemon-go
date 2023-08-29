@@ -6,7 +6,18 @@ import pokedex from "./data/pokemon/pokemon.js";
 // El código define un objeto llamado pokeData que contiene una función llamada filterByType
 //para filtrar Pokémon por tipo. Si el tipo es vacío, la función devuelve todos los Pokémon.
 //De lo contrario, filtra los Pokémon por el tipo especificado y devuelve los resultados.
+
 const pokeData = {
+  sortAscendingByNum: function (pokemonArray) {
+    const orderedList = pokemonArray.sort((a, b) => a.num - b.num);
+    return orderedList;
+  },
+
+  sortDescendingByNum: function (pokemonArray) {
+    const orderedList = pokemonArray.sort((a, b) => b.num - a.num);
+    return orderedList;
+  },
+
   // Función para filtrar Pokémon por tipo
   filterByType: function (type) {
     if (type === "") {
@@ -32,7 +43,9 @@ const pokeData = {
   // Función para obtener la información de un Pokémon por su nombre
   getPokemonInfoByName: function (name) {
     const lowerCaseName = name.toLowerCase();
-    const pokemonInfo = pokedex.pokemon.find(pokemon => pokemon.name === lowerCaseName);
+    const pokemonInfo = pokedex.pokemon.find(
+      (pokemon) => pokemon.name === lowerCaseName
+    );
     return pokemonInfo || null; // Si no se encuentra el Pokémon, devuelve null
   },
 
@@ -48,12 +61,37 @@ const pokeData = {
     );
   },
 
-  //función para ordenar pokemones
-  sortAscending: function (pokemons) {
-    return pokemons.slice().sort();
+  // //función para ordenar pokemones
+  // sortAscending: function (pokemons) {
+  //   return pokemons.slice().sort();
+  // },
+  // Function to sort and render Pokémon based on the selected order
+
+  orderAndUpdateList: function (selectedOrder, section) {
+    let currentPokemonList = section.innerHTML
+      ? Array.from(section.children)
+      : [];
+
+    currentPokemonList = currentPokemonList.map((element) => {
+      const name = element.querySelector("p").textContent;
+      return pokeData.getPokemonInfoByName(name);
+    });
+
+    if (selectedOrder === "a-z") {
+      currentPokemonList.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (selectedOrder === "z-a") {
+      currentPokemonList.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (selectedOrder === "num1-251") {
+      currentPokemonList = pokeData.sortAscendingByNum(currentPokemonList);
+    } else if (selectedOrder === "num251-1") {
+      currentPokemonList = pokeData.sortDescendingByNum(currentPokemonList);
+    }
+
+    return currentPokemonList;
+    // section.innerHTML = pokemonHtml(currentPokemonList);
+    // },
+    // showPokemons(currentPokemonList);
   },
 };
-
-
 // Exportar el objeto pokeData para su uso en otros archivos
 export default pokeData;

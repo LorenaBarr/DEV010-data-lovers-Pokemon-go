@@ -2,11 +2,11 @@
 import pokeData from "./data.js";
 import pokemon from "./data/pokemon/pokemon.js";
 import pokemons from "./data/pokemon/pokemon.js";
+
 // Función para generar el HTML de los Pokémon
 function pokemonHtml(data) {
   let html = "";
   data.forEach((pokemon) => {
-
     html += `
     <div class="pokemon-card""> 
         <img src="${pokemon.img}" alt="${pokemon.name}"> 
@@ -18,7 +18,7 @@ function pokemonHtml(data) {
 }
 
 function showPoke() {
-  console.log("holi")
+  console.log("holi");
 }
 
 // Obtener la referencia a la sección donde se mostrarán los Pokémon
@@ -33,9 +33,7 @@ const filterButton = document.getElementById("filterButton");
 const clearFilterButton = document.getElementById("clearFilterButton");
 const orderButton = document.getElementById("orderButton");
 
-
 // Obtener referencias a los elementos dentro del dialog
-// const pokemonCards = document.querySelectorAll(".pokemon-card");
 const dialog = document.getElementById("dialog");
 const pokeName = document.getElementById("pokeName");
 const pokeNumber = document.getElementById("pokeNumber");
@@ -55,20 +53,16 @@ pokemonNames.forEach((name) => {
 });
 
 function showPokemons(pokemonList) {
-  section.innerHTML = pokemonHtml(pokemonList)
-  const pokemonCards = document.querySelectorAll(".pokemon-card")
-  console.log(pokemonCards)
+  section.innerHTML = pokemonHtml(pokemonList);
+  const pokemonCards = document.querySelectorAll(".pokemon-card");
+  // console.log(pokemonCards);
 
   for (const pokemonCard of pokemonCards) {
     pokemonCard.addEventListener("click", () => {
       const pokemonName = pokemonCard.querySelector("p").textContent;
-      const selectedPokemonInfo =
-        pokeData.getPokemonInfoByName(pokemonName);
-      openDialog(selectedPokemonInfo)
-
-    })
-
-
+      const selectedPokemonInfo = pokeData.getPokemonInfoByName(pokemonName);
+      openDialog(selectedPokemonInfo);
+    });
   }
 }
 
@@ -76,8 +70,7 @@ function showPokemons(pokemonList) {
 function showAllPokemon() {
   // console.log("showAllPokemon");
   const allPokemon = pokeData.filterByType("");
-  showPokemons(allPokemon)
-
+  showPokemons(allPokemon);
 }
 
 dialog.querySelector("#dialogClose").addEventListener("click", () => {
@@ -87,7 +80,6 @@ dialog.querySelector("#dialogClose").addEventListener("click", () => {
 // Manejar el evento de autocompletado y limpiar el filtro cuando el usuario borre el input
 inputField.addEventListener("input", () => {
   const inputText = inputField.value.toLowerCase();
-
 
   if (inputText === "") {
     showAllPokemon();
@@ -120,45 +112,18 @@ filterButton.addEventListener("click", () => {
 // editing space -------------------------------------------------------------------
 
 const orderDropdown = document.getElementById("order");
-const ascendingPokedexButton = document.querySelector(
-  'option[value="num1-251"]'
-);
-const descendingPokedexButton = document.querySelector(
-  'option[value="num251-1"]'
-);
+// const section = document.getElementById("pokemon-grid");
+// const orderButton = document.getElementById("orderButton");
 
+// Event listener for the "Order" button
 orderButton.addEventListener("click", () => {
   const selectedOrder = orderDropdown.value;
-
-  // Retrieve the current list of Pokémon based on previous filters
-  let currentPokemonList = section.innerHTML
-    ? Array.from(section.children)
-    : [];
-
-  // Convert the DOM elements back into Pokémon objects for sorting
-  currentPokemonList = currentPokemonList.map((element) => {
-    const name = element.querySelector("p").textContent;
-    return pokeData.filterByPokemonName(name, pokemons)[0];
-  });
-
-  // Sort the Pokémon list based on the selected order
-  if (selectedOrder === "a-z") {
-    currentPokemonList.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (selectedOrder === "z-a") {
-    currentPokemonList.sort((a, b) => b.name.localeCompare(a.name));
-  } else if (selectedOrder === "num1-251") {
-    currentPokemonList.sort((a, b) => a.num - b.num);
-  } else if (selectedOrder === "num251-1") {
-    currentPokemonList.sort((a, b) => b.num - a.num);
-  }
-
-  // Generate the HTML for the sorted Pokémon list
-  showPokemons(currentPokemonList);
+  // pokeData.orderAndUpdateList(selectedOrder, section, pokemonHtml);
+  const pokemonList = pokeData.orderAndUpdateList(selectedOrder, section);
+  showPokemons(pokemonList);
 });
 
 // editing space -------------------------------------------------------------------
-
-
 
 // Agrega un manejador de eventos al botón "Limpiar Filtro"
 clearFilterButton.addEventListener("click", () => {
@@ -200,24 +165,12 @@ function openDialog(pokemonInfo) {
     dialog.showModal();
 
     // Agregar evento para cerrar el diálogo
-
   }
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
-
-  showAllPokemon()
-  console.log("holi")
-
-
-
-
+  showAllPokemon();
 });
 
-
-
-
-
-
-
+// Mostrar todos los Pokémon inicialmente
+// section.innerHTML = pokemonHtml(pokeData.filterByType(""));
