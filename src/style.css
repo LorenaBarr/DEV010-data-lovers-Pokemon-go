@@ -1,8 +1,11 @@
 /* Definición de la fuente personalizada "Pokemon Solid" */
 /* @font-face {
-  font-family: "Pokemon Solid";
+  font-family: 'Lato', sans-serif;
   src: url("Fuente-pokemon/Pokemon\Solid.ttf") format("truetype");
 } */
+body {
+  font-family: 'Lato', sans-serif;
+}
 
 /* Estilos para el encabezado */
 header {
@@ -12,10 +15,7 @@ header {
   /* Centrar verticalmente los elementos */
   justify-content: space-evenly;
   /* Distribuir el espacio entre los elementos de manera uniforme */
-  background-color: rgba(255,
-      255,
-      255,
-      0.5);
+  background-color: rgba(25, 0, 138, 0.5);
   /* Fondo semitransparente blanco */
   border-radius: 10px;
   /* Borde redondeado */
@@ -31,11 +31,11 @@ header {
 
 /* Estilos para los encabezados de nivel 1 */
 h1 {
-  font-family: "Pokemon Solid";
+  font-family: 'Lato', sans-serif;
   /* Usar la fuente personalizada */
   font-weight: bold;
   /* Negrita */
-  color: #1e90ff;
+  color: #ffffff;
   /* Color azul */
   margin: 0;
   /* Margen cero para el encabezado */
@@ -43,7 +43,7 @@ h1 {
   /* Tamaño de fuente */
   text-align: center;
   /* Centrar el texto */
-  text-shadow: 2px 2px black;
+
 }
 
 /* Estilos para el contenedor principal */
@@ -123,6 +123,7 @@ ul {
 input {
   border-radius: 10px;
   /* Borde redondeado */
+  font-family: 'Lato', sans-serif;
 }
 
 /* Estilos para las tarjetas de Pokémon */
@@ -149,11 +150,14 @@ input {
   /* Margen */
   border-radius: 20px;
   /* Borde redondeado */
-  background-color: rgba(255,
-      255,
-      255,
-      0.5);
+  background-color: rgba(75, 78, 248, 0.5);
   /* Fondo semitransparente blanco */
+}
+
+p {
+  
+  font-family: 'Lato', sans-serif;
+  color:#000000;
 }
 
 /* Estilos para imágenes de Pokémon en las tarjetas */
@@ -166,45 +170,52 @@ input {
 button {
   border-radius: 10px;
   /* Borde redondeado */
-  border-color: #f87da8;
+  border-color: #24cbaa;
+  border-width: 15px
   /* Color del borde */
   padding: 5px 15px;
   margin: 10px;
   text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+select {
+  font-family: 'Lato', sans-serif;
+  border-radius: 10px;
 }
 
 /* Definición de la animación "rainbow" */
 @keyframes rainbow {
   0% {
-    border-color: #f9ebf2;
+    border-color: #7a81e6;
   }
 
   14% {
-    border-color: #f3e2e8;
+    border-color: #b8f5f0;
   }
 
   28% {
-    border-color: #fcd7da;
+    border-color: #0501f3;
   }
 
   42% {
-    border-color: #f58f9a;
+    border-color: #03fafa;
   }
 
   57% {
-    border-color: #c03eaa;
+    border-color: #00ffff;
   }
 
   71% {
-    border-color: rgb(255, 76, 210);
+    border-color: rgb(4, 48, 247);
   }
 
   85% {
-    border-color: violet;
+    border-color: rgb(20, 3, 252);
   }
 
   100% {
-    border-color: rgb(252, 146, 243);
+    border-color: rgb(0, 255, 255);
   }
 }
 
