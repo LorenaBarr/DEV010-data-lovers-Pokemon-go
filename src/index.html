@@ -1,94 +1,101 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Data Lovers - Pokemon Go</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Data Lovers - Pokemon Go</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-</head>
+  <body>
+    <header>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/2560px-Pok%C3%A9mon_GO_logo.svg.png"
+        alt="Pokemon GO logo"
+        id="logo"
+      />
+      <h1>Everything you need to know to become the best Pokemon Master!</h1>
+    </header>
+    <div class="container">
+      <nav class="menu">
+        <ul>
+          <li class="search">
+            <input
+              type="text"
+              placeholder="Write the pokemon name"
+              list="pokemonNames"
+            />
+            <datalist id="pokemonNames"></datalist>
+            <button>Search</button>
+            <div class="suggestions"></div>
+          </li>
+        </ul>
+        <select id="typeFilter">
+          <option value="">All Types</option>
+          <option value="grass">Grass</option>
+          <option value="fire">Fire</option>
+          <option value="normal">Normal</option>
+          <option value="water">Water</option>
+          <option value="flying">Flying</option>
+          <option value="fighting">Fighting</option>
+          <option value="electric">Electric</option>
+          <option value="ground">Ground</option>
+          <option value="psychic">Psychic</option>
+          <option value="ice">Ice</option>
+          <option value="bug">Bug</option>
+          <option value="ghost">Ghost</option>
+          <option value="steel">Steel</option>
+          <option value="dragon">Dragon</option>
+          <option value="dark">Dark</option>
+          <option value="fairy">Fairy</option>
+          <option value="poison">Poison</option>
+        </select>
+        <button id="filterButton">Filter</button>
 
-<body>
-  <header>
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/2560px-Pok%C3%A9mon_GO_logo.svg.png"
-      alt="Pokemon GO logo" id="logo" />
-    <h1>Everything you need to know to become the best Pokemon Master!</h1>
-  </header>
-  <div class="container">
-    <nav class="menu">
-      <ul>
-        <li class="search">
-          <input type="text" placeholder="Write the pokemon name" list="pokemonNames" />
-          <datalist id="pokemonNames"></datalist>
-          <button>Search</button>
-          <div class="suggestions"></div>
-        </li>
-      </ul>
-      <select id="typeFilter">
-        <option value="">All Types</option>
-        <option value="grass">Grass</option>
-        <option value="fire">Fire</option>
-        <option value="normal">Normal</option>
-        <option value="water">Water</option>
-        <option value="flying">Flying</option>
-        <option value="fighting">Fighting</option>
-        <option value="electric">Electric</option>
-        <option value="ground">Ground</option>
-        <option value="psychic">Psychic</option>
-        <option value="ice">Ice</option>
-        <option value="bug">Bug</option>
-        <option value="ghost">Ghost</option>
-        <option value="steel">Steel</option>
-        <option value="dragon">Dragon</option>
-        <option value="dark">Dark</option>
-        <option value="fairy">Fairy</option>
-        <option value="poison">Poison</option>
-      </select>
-      <button id="filterButton">Filter</button>
+        <select id="order">
+          <option value="" disabled selected>Order by</option>
+          <option value="a-z">A-Z</option>
+          <option value="z-a">Z- A</option>
+          <option value="num1-251">Ascending Pokedex Num</option>
+          <option value="num251-1">Descending Pokedex Num</option>
+        </select>
+        <button id="orderButton">Order</button>
+        <button id="clearFilterButton">Clean Filter</button>
+      </nav>
 
-      <select id="order">
-        <option value="" disabled selected>Order by</option>
-        <option value="a-z">A-Z</option>
-        <option value="z-a">Z- A</option>
-        <option value="num1-251">Ascending Pokedex Num</option>
-        <option value="num251-1">Descending Pokedex Num</option>
-      </select>
-      <button id="orderButton">Order</button>
-      <button id="clearFilterButton">Clean Filter</button>
-    </nav>
+      <dialog id="dialog">
+        <form method="dialog">
+          <section id="pokemon-info">
+            <h2 id="pokeName"></h2>
+            <p id="pokeNumber"></p>
+            <img id="pokeImg" alt="Pokemon Image" />
+            <p id="pokeType"></p>
+          </section>
+          <section id="resistance-weakness">
+            <h2>Resistance & Weaknesses</h2>
+            <p id="resistant-Weak"></p>
+          </section>
+          <section id="attacks">
+            <h2>Attacks</h2>
+            <p id="move"></p>
+          </section>
+          <section id="evolutions">
+            <h2>Evolutions</h2>
+            <p id="evolution"></p>
+          </section>
+          <button id="dialogClose">Close</button>
+        </form>
+      </dialog>
 
-    <dialog id="dialog">
-      <form method="dialog">
-        <section id="pokemon-info">
-          <h2 id="pokeName"></h2>
-          <p id="pokeNumber"></p>
-          <img id="pokeImg" alt="Pokemon Image" />
-          <p id="pokeType"></p>
-        </section>
-        <section id="resistance-weakness">
-          <h2>Resistance & Weaknesses</h2>
-          <p id="resistant-Weak"></p>
-        </section>
-        <section id="attacks">
-          <h2>Attacks</h2>
-          <p id="move"></p>
-        </section>
-        <section id="evolutions">
-          <h2>Evolutions</h2>
-          <p id="evolution"></p>
-        </section>
-        <button id="dialogClose">Close</button>
-      </form>
-    </dialog>
+      <section id="pokemon-grid"></section>
+    </div>
 
-    <section id="pokemon-grid"></section>
-  </div>
-
-  <div id="root"></div>
-  <script src="main.js" type="module"></script>
-</body>
-
+    <div id="root"></div>
+    <script src="main.js" type="module"></script>
+  </body>
 </html>

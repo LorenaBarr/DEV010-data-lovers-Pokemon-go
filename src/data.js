@@ -8,16 +8,6 @@ import pokedex from "./data/pokemon/pokemon.js";
 //De lo contrario, filtra los Pokémon por el tipo especificado y devuelve los resultados.
 
 const pokeData = {
-  sortAscendingByNum: function (pokemonArray) {
-    const orderedList = pokemonArray.sort((a, b) => a.num - b.num);
-    return orderedList;
-  },
-
-  sortDescendingByNum: function (pokemonArray) {
-    const orderedList = pokemonArray.sort((a, b) => b.num - a.num);
-    return orderedList;
-  },
-
   // Función para filtrar Pokémon por tipo
   filterByType: function (type) {
     if (type === "") {
@@ -66,6 +56,16 @@ const pokeData = {
   //   return pokemons.slice().sort();
   // },
   // Function to sort and render Pokémon based on the selected order
+
+  sortAscendingByNum: function (pokemonArray) {
+    const orderedList = pokemonArray.sort((a, b) => a.num - b.num);
+    return orderedList;
+  },
+
+  sortDescendingByNum: function (pokemonArray) {
+    const orderedList = pokemonArray.sort((a, b) => b.num - a.num);
+    return orderedList;
+  },
 
   orderAndUpdateList: function (selectedOrder, section) {
     let currentPokemonList = section.innerHTML

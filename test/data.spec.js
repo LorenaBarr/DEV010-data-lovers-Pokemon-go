@@ -43,7 +43,7 @@ describe("filterByPokemonName", () => {
     expect(filteredPokemons).toEqual([{ name: "charmander", type: ["fire"] }]);
   });
 });
-
+//--------testing split
 describe("orderAndUpdateList", () => {
   it("should sort an array of Pokémons in ascending order by number", () => {
     const inputArray = [
