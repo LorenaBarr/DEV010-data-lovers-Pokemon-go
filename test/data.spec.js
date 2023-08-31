@@ -43,3 +43,62 @@ describe("filterByPokemonName", () => {
     expect(filteredPokemons).toEqual([{ name: "charmander", type: ["fire"] }]);
   });
 });
+
+describe("orderAndUpdateList", () => {
+  it("should sort an array of Pokémons in ascending order by number", () => {
+    const inputArray = [
+      { num: 4, name: "Charmander" },
+      { num: 2, name: "Ivysaur" },
+      { num: 1, name: "Bulbasaur" },
+    ];
+    const expectedResult = [
+      { num: 1, name: "Bulbasaur" },
+      { num: 2, name: "Ivysaur" },
+      { num: 4, name: "Charmander" },
+    ];
+    const sortedArray = pokeData.sortAscendingByNum(inputArray);
+    expect(sortedArray).toEqual(expectedResult);
+  });
+  it("should sort an array of Pokémon in descending order by number", () => {
+    const inputArray = [
+      { num: 4, name: "Charmander" },
+      { num: 2, name: "Ivysaur" },
+      { num: 1, name: "Bulbasaur" },
+    ];
+    const expectedResult = [
+      { num: 4, name: "Charmander" },
+      { num: 2, name: "Ivysaur" },
+      { num: 1, name: "Bulbasaur" },
+    ];
+    const sortedArray = pokeData.sortDescendingByNum(inputArray);
+    expect(sortedArray).toEqual(expectedResult);
+  });
+  it("should sort an array of Pokémon in alphabetical order (A-Z) by name", () => {
+    const inputArray = [
+      { num: 4, name: "Charmander" },
+      { num: 2, name: "Ivysaur" },
+      { num: 1, name: "Bulbasaur" },
+    ];
+    const expectedResult = [
+      { num: 1, name: "Bulbasaur" },
+      { num: 4, name: "Charmander" },
+      { num: 2, name: "Ivysaur" },
+    ];
+    const sortedArray = pokeData.orderAndUpdateList("a-z", inputArray);
+    expect(sortedArray).toEqual(expectedResult);
+  });
+  it("should sort an array of Pokémon in reverse alphabetical order (Z-A) by name", () => {
+    const inputArray = [
+      { num: 4, name: "Charmander" },
+      { num: 2, name: "Ivysaur" },
+      { num: 1, name: "Bulbasaur" },
+    ];
+    const expectedResult = [
+      { num: 2, name: "Ivysaur" },
+      { num: 4, name: "Charmander" },
+      { num: 1, name: "Bulbasaur" },
+    ];
+    const sortedArray = pokeData.orderAndUpdateList("z-a", inputArray);
+    expect(sortedArray).toEqual(expectedResult);
+  });
+});
