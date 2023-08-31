@@ -8,7 +8,7 @@ function pokemonHtml(data) {
   let html = "";
   data.forEach((pokemon) => {
     html += `
-    <div class="pokemon-card""> 
+    <div class="pokemon-card"" ${pokemon.type[0]}-bg>
         <img src="${pokemon.img}" alt="${pokemon.name}"> 
         <p>${pokemon.name}</p>
     </div>
@@ -36,6 +36,7 @@ const orderButton = document.getElementById("orderButton");
 // Obtener referencias a los elementos dentro del dialog
 const dialog = document.getElementById("dialog");
 const pokeName = document.getElementById("pokeName");
+const pokeType =document.getElementById("pokeType")
 const pokeNumber = document.getElementById("pokeNumber");
 const pokeImg = document.getElementById("pokeImg");
 const resistantWeak = document.getElementById("resistant-Weak");
@@ -142,9 +143,13 @@ function showCard(pokemon) {
 
 function openDialog(pokemonInfo) {
   if (pokemonInfo) {
-    pokeName.textContent = pokemonInfo.name;
+    
+    const pokemonType = pokemonInfo.type[0];
+    dialog.classList.add(`${pokemonType}-bg`);
+    pokeName.textContent = `${pokemonInfo.name}`;
     pokeNumber.textContent = `Pokédex Number: ${pokemonInfo.num}`;
     pokeImg.src = pokemonInfo.img;
+    pokeType.textContent = `Type: ${pokemonInfo.type}`;
     resistantWeak.textContent =
       "Resistance: " +
       pokemonInfo.resistant.join(", ") +
@@ -167,6 +172,11 @@ function openDialog(pokemonInfo) {
     // Agregar evento para cerrar el diálogo
   }
 }
+
+dialog.querySelector("#dialogClose").addEventListener("click", () => {
+  dialog.classList.remove("grass-bg", "fire-bg", "normal-bg", "water-bg", "flying-bg", "fighting-bg", "electric-bg", "ground-bg", "psychic-bg", "bug-bg", "ghost-bg", "steel-bg", "dragon-bg", "dark-bg", "fairy-bg", "poison-bg" );
+  dialog.close();
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   showAllPokemon();
