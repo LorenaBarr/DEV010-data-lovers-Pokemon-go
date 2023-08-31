@@ -10,7 +10,7 @@ function pokemonHtml(data) {
     html += `
     <div class="pokemon-card"" ${pokemon.type[0]}-bg>
         <img src="${pokemon.img}" alt="${pokemon.name}"> 
-        <p>${pokemon.name}</p>
+        <p id="boxName">${pokemon.name}</p>
     </div>
     `;
   });
