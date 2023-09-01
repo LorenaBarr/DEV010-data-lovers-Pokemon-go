@@ -5,6 +5,7 @@
 } */
 body {
   font-family: 'Lato', sans-serif;
+  flex-wrap: wrap;
 }
 
 /* Estilos para el encabezado */
@@ -20,6 +21,7 @@ header {
   border-radius: 10px;
   /* Borde redondeado */
   color: white;
+
 }
 
 /* Estilos para el logo */
@@ -77,7 +79,7 @@ ul {
 #descendingButton {
   margin-left: -65px;
   /* Mover los botones hacia la izquierda */
-}
+} 
 
 /* Estilos para el menú */
 .menu {
@@ -91,6 +93,8 @@ ul {
   /* Ancho completo del menú */
   margin-bottom: 10px;
   /* Margen inferior */
+  flex-wrap: wrap;
+
 }
 
 /* Estilos para el contenedor de los Pokémon */
@@ -159,14 +163,12 @@ p {
 /* Estilos generales para botones */
 button {
   border-radius: 10px;
-  /* Borde redondeado */
+  
   border-color: #24cbaa;
   border-width: 15px
-    /* Color del borde */
-    padding: 5px 15px;
-  margin: 10px;
   text-align: center;
   font-family: 'Lato', sans-serif;
+  
 }
 
 select {
@@ -352,3 +354,80 @@ datalist {
 .ice-bg {
   background-image: url("https://img.freepik.com/vector-gratis/fondo-diseno-abstracto_1048-8430.jpg?w=740&t=st=1693504652~exp=1693505252~hmac=97e046e1550086e4617b3ec9dd51a5075bc1a4e2fc83d336b708a4da87d167f1");
 }
+
+
+@media only screen and (max-width : 900px) {
+  nav.menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    
+  }
+  #filterButton, #orderButton, #ascendingButton, #descendingButton {
+    margin-left: 0px;
+  }
+
+  select {
+    width: 100px;
+
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+  }
+
+  li {
+    flex-direction: column;
+  }
+  
+  li.search {
+    margin-right: 30px;
+  }
+
+  h1 {
+    font-size: 15px; 
+  }
+
+  img#logo {
+    width: 60px ;
+  }
+
+  #dialog {
+    width: 200px;
+    height: 200px;
+  }
+
+  #dialog img {
+    max-width: 50%;
+    height: auto;
+    margin: 0px;
+  }
+
+  .pokemon-info {
+    max-width: 50%;
+    height: auto;
+  }
+
+  p#boxName {
+    font-size: 15px;
+  }
+
+  h2 h3 {
+    font-size: 15px;
+    margin: 10px;
+  }
+
+  h2#pokeName {
+    margin: 5px;
+  }
+
+  p {
+    font-size: 10px;
+    margin: 0px;
+  }
+  }
+
+  
