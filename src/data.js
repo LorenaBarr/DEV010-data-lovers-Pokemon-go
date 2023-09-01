@@ -9,7 +9,7 @@ import pokedex from "./data/pokemon/pokemon.js";
 
 const pokeData = {
   // Función para filtrar Pokémon por tipo
-  filterByType: function (type) {
+  filterByType: function (type, pokedex) {
     if (type === "") {
       return pokedex.pokemon;
       // Si el tipo es vacío, devolver todos los Pokémon
@@ -67,30 +67,19 @@ const pokeData = {
     return orderedList;
   },
 
-  orderAndUpdateList: function (selectedOrder, section) {
-    let currentPokemonList = section.innerHTML
-      ? Array.from(section.children)
-      : [];
-
-    currentPokemonList = currentPokemonList.map((element) => {
-      const name = element.querySelector("p").textContent;
-      return pokeData.getPokemonInfoByName(name);
-    });
-
+  orderAndUpdateList: function (selectedOrder, data) {
+    let currentPokemon;
     if (selectedOrder === "a-z") {
-      currentPokemonList.sort((a, b) => a.name.localeCompare(b.name));
+      currentPokemon = data.sort((a, b) => a.name.localeCompare(b.name));
     } else if (selectedOrder === "z-a") {
-      currentPokemonList.sort((a, b) => b.name.localeCompare(a.name));
+      currentPokemon = data.sort((a, b) => b.name.localeCompare(a.name));
     } else if (selectedOrder === "num1-251") {
-      currentPokemonList = pokeData.sortAscendingByNum(currentPokemonList);
+      currentPokemon = data = pokeData.sortAscendingByNum(data);
     } else if (selectedOrder === "num251-1") {
-      currentPokemonList = pokeData.sortDescendingByNum(currentPokemonList);
+      currentPokemon = data = pokeData.sortDescendingByNum(data);
     }
 
-    return currentPokemonList;
-    // section.innerHTML = pokemonHtml(currentPokemonList);
-    // },
-    // showPokemons(currentPokemonList);
+    return currentPokemon;
   },
 };
 // Exportar el objeto pokeData para su uso en otros archivos

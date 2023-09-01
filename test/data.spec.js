@@ -2,19 +2,25 @@ import pokeData from "../src/data.js";
 
 describe("filterByType", () => {
   it("filters pokemon by type", () => {
-    const testFilter = [
-      { name: "bulbasaur", type: ["grass", "poison"] },
-      { name: "charmander", type: ["fire"] },
-      { name: "squirtle", type: ["water"] },
-    ];
+    const testFilter = {
+      pokemon: [
+        { name: "bulbasaur", type: ["grass", "poison"] },
+        { name: "charmander", type: ["fire"] },
+        { name: "squirtle", type: ["water"] },
+      ],
+    };
 
     const filteredPokemons = pokeData.filterByType("fire", testFilter);
-
+    // que la funcion existe
+    expect(typeof pokeData.filterByType).toBe("function");
+    // comportamiento deseado
     expect(filteredPokemons).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ name: "charmander", type: ["fire"] }),
       ])
     );
+    // estresar a la funcion
+    expect(pokeData.filterByType("", testFilter)).toEqual(testFilter.pokemon);
   });
 });
 
@@ -75,7 +81,7 @@ describe("orderAndUpdateList", () => {
       { num: 2, name: "Ivysaur" },
       { num: 1, name: "Bulbasaur" },
     ];
-    const sortedArray = pokeData.sortDescendingByNum(inputArray);
+    const sortedArray = pokeData.orderAndUpdateList("num251-1", inputArray);
     expect(sortedArray).toEqual(expectedResult);
   });
   it("should sort an array of Pokémon in alphabetical order (A-Z) by name", () => {
@@ -90,6 +96,7 @@ describe("orderAndUpdateList", () => {
       { num: 2, name: "Ivysaur" },
     ];
     const sortedArray = pokeData.orderAndUpdateList("a-z", inputArray);
+    // comportamiento deseado
     expect(sortedArray).toEqual(expectedResult);
   });
   it("should sort an array of Pokémon in reverse alphabetical order (Z-A) by name", () => {

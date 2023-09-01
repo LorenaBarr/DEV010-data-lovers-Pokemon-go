@@ -36,7 +36,7 @@ const orderButton = document.getElementById("orderButton");
 // Obtener referencias a los elementos dentro del dialog
 const dialog = document.getElementById("dialog");
 const pokeName = document.getElementById("pokeName");
-const pokeType =document.getElementById("pokeType")
+const pokeType = document.getElementById("pokeType");
 const pokeNumber = document.getElementById("pokeNumber");
 const pokeImg = document.getElementById("pokeImg");
 const resistantWeak = document.getElementById("resistant-Weak");
@@ -70,7 +70,7 @@ function showPokemons(pokemonList) {
 // Función para mostrar todos los Pokémon
 function showAllPokemon() {
   // console.log("showAllPokemon");
-  const allPokemon = pokeData.filterByType("");
+  const allPokemon = pokeData.filterByType("", pokemon);
   showPokemons(allPokemon);
 }
 
@@ -90,7 +90,7 @@ inputField.addEventListener("input", () => {
   const filteredNames = pokemonNames.filter((name) =>
     name.toLowerCase().includes(inputText)
   );
-  section.innerHTML = pokemonHtml(pokeData.filterByType(""));
+  section.innerHTML = pokemonHtml(pokeData.filterByType("", pokemon));
 });
 
 // Manejar el evento de búsqueda cuando el usuario presiona el botón "Search"
@@ -106,7 +106,7 @@ searchButton.addEventListener("click", () => {
 // Manejar el evento de filtrado por tipo de Pokémon
 filterButton.addEventListener("click", () => {
   const selectedType = typeFilter.value;
-  const filteredPokemon = pokeData.filterByType(selectedType);
+  const filteredPokemon = pokeData.filterByType(selectedType, pokemon);
   showPokemons(filteredPokemon);
 });
 
@@ -120,7 +120,10 @@ const orderDropdown = document.getElementById("order");
 orderButton.addEventListener("click", () => {
   const selectedOrder = orderDropdown.value;
   // pokeData.orderAndUpdateList(selectedOrder, section, pokemonHtml);
-  const pokemonList = pokeData.orderAndUpdateList(selectedOrder, section);
+  const pokemonList = pokeData.orderAndUpdateList(
+    selectedOrder,
+    pokemon.pokemon
+  );
   showPokemons(pokemonList);
 });
 
@@ -143,7 +146,6 @@ function showCard(pokemon) {
 
 function openDialog(pokemonInfo) {
   if (pokemonInfo) {
-    
     const pokemonType = pokemonInfo.type[0];
     dialog.classList.add(`${pokemonType}-bg`);
     pokeName.textContent = `${pokemonInfo.name}`;
@@ -174,7 +176,24 @@ function openDialog(pokemonInfo) {
 }
 
 dialog.querySelector("#dialogClose").addEventListener("click", () => {
-  dialog.classList.remove("grass-bg", "fire-bg", "normal-bg", "water-bg", "flying-bg", "fighting-bg", "electric-bg", "ground-bg", "psychic-bg", "bug-bg", "ghost-bg", "steel-bg", "dragon-bg", "dark-bg", "fairy-bg", "poison-bg" );
+  dialog.classList.remove(
+    "grass-bg",
+    "fire-bg",
+    "normal-bg",
+    "water-bg",
+    "flying-bg",
+    "fighting-bg",
+    "electric-bg",
+    "ground-bg",
+    "psychic-bg",
+    "bug-bg",
+    "ghost-bg",
+    "steel-bg",
+    "dragon-bg",
+    "dark-bg",
+    "fairy-bg",
+    "poison-bg"
+  );
   dialog.close();
 });
 
