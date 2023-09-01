@@ -67,7 +67,7 @@ describe("orderAndUpdateList", () => {
       { num: 2, name: "Ivysaur" },
       { num: 4, name: "Charmander" },
     ];
-    const sortedArray = pokeData.sortAscendingByNum(inputArray);
+    const sortedArray = pokeData.orderAndUpdateList("num1-251", inputArray);
     expect(sortedArray).toEqual(expectedResult);
   });
   it("should sort an array of Pokémon in descending order by number", () => {
