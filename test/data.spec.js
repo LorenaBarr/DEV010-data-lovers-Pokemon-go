@@ -1,4 +1,5 @@
 import pokeData from "../src/data.js";
+import pokemon from "../src/data/pokemon/pokemon.js";
 
 describe("filterByType", () => {
   it("filters pokemon by type", () => {
@@ -24,18 +25,40 @@ describe("filterByType", () => {
   });
 });
 
-// describe("getPokemonNames", () => {
-//   it("returns an array of Pokémon names", () => {
-//     const testFilter = [
-//       { name: "bulbasaur", type: ["grass", "poison"] },
-//       { name: "charmander", type: ["fire"] },
-//       { name: "squirtle", type: ["water"] },
-//     ];
+describe("getPokemonNames", () => {
+  it("returns an array of pokemon names", () => {
+    const names = pokeData.getPokemonNames();
 
-//     const pokemonNames = pokeData.getPokemonNames(testFilter);
-//     expect(pokemonNames).toEqual(["bulbasaur", "charmander", "squirtle"]);
-//   });
-// });
+    expect(typeof pokeData.getPokemonNames).toBe("function");
+
+    expect(Array.isArray(names)).toBe(true);
+
+    expect(names).toContain("pikachu");
+  });
+});
+
+describe("getPokemonInfoByName", () => {
+  it("should return Pokemon info by name", () => {
+
+    const pokemonInfo = pokeData.getPokemonInfoByName("pikachu");
+
+    expect(typeof pokeData.getPokemonInfoByName).toBe("function");
+
+    expect(pokemonInfo).not.toBeNull();
+
+    expect(pokemonInfo.name).toBe("pikachu");
+
+  });
+
+  it("should return null for non-existent pokemon", () => {
+    const pokemonInfo = pokeData.getPokemonInfoByName("picachu");
+
+    expect(pokemonInfo).toBeNull();
+  });
+
+});
+
+
 
 describe("filterByPokemonName", () => {
   it("filters Pokémon by name", () => {

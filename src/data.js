@@ -26,8 +26,10 @@ const pokeData = {
   // Luego, retorna un nuevo array con los nombres obtenidos.*//
 
   getPokemonNames: function () {
+    
     // Mapear los datos de los Pokémon y obtener sus nombres
     return pokedex.pokemon.map((pokemon) => pokemon.name);
+    
   },
 
   // Función para obtener la información de un Pokémon por su nombre
