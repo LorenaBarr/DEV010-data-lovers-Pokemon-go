@@ -53,6 +53,12 @@ const pokeData = {
     );
   },
 
+  // La función filterByPokemonName recibe dos parámetros: name y pokemons. 
+  // Filtra los Pokémon en base a su nombre utilizando el método filter. 
+  // Compara el nombre de cada Pokémon en minúsculas con el valor del parámetro name también en minúsculas. 
+  // Retorna un nuevo array con los Pokémon cuyo nombre coincide exactamente con el valor proporcionado.
+
+
   // //función para ordenar pokemones
   // sortAscending: function (pokemons) {
   //   return pokemons.slice().sort();
@@ -64,10 +70,23 @@ const pokeData = {
     return orderedList;
   },
 
+  // La función sortAscendingByNum recibe un array de objetos pokemonArray. 
+  // Utiliza el método sort para ordenar los elementos del array en orden ascendente según el valor de 
+  // la propiedad num de cada objeto. 
+  // Luego, retorna el array ordenado.
+
+
   sortDescendingByNum: function (pokemonArray) {
     const orderedList = pokemonArray.sort((a, b) => b.num - a.num);
     return orderedList;
   },
+
+  // La función sortDescendingByNum recibe un array de objetos pokemonArray. 
+  // Utiliza el método sort para ordenar los elementos del array en orden descendente según el valor 
+  // de la propiedad num de cada objeto. 
+  // Luego, retorna el array ordenado.
+
+
 
   orderAndUpdateList: function (selectedOrder, data) {
     let currentPokemon;
@@ -84,5 +103,17 @@ const pokeData = {
     return currentPokemon;
   },
 };
+
+
+
+// La función orderAndUpdateList recibe dos parámetros: selectedOrder y data. 
+// Dependiendo del valor de selectedOrder, se realiza una acción diferente para ordenar el array data. 
+// Si selectedOrder es "a-z", se ordena el array en orden alfabético ascendente según el nombre de los Pokémon.
+// Si es "z-a", se ordena en orden alfabético descendente. Si es "num1-251", 
+// se utiliza la función sortAscendingByNum para ordenar el array según el número de los Pokémon en orden 
+// ascendente. Y si es "num251-1", se utiliza la función sortDescendingByNum para ordenar en orden descendente.
+//  Finalmente, se retorna el array ya ordenado.
+
+
 // Exportar el objeto pokeData para su uso en otros archivos
 export default pokeData;
