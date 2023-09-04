@@ -1,3 +1,92 @@
+# Pokemon Go - Data Lovers 
+
+El Pokédex de Pokémon Go es una aplicación web que proporciona información detallada sobre los Pokémon de las generaciones 1 y 2. Los usuarios pueden explorar y buscar Pokémon, filtrar por tipo, ordenar por nombre o número de la Pokédex, y ver información detallada sobre cada Pokémon en una ventana emergente al hacer clic en su tarjeta correspondiente.
+
+# Uso
+Para utilizar el Pokédex de Pokémon Go, simplemente sigue estos pasos:
+
+Explora la lista de Pokémon en la página principal.
+
+Utiliza la barra de búsqueda para buscar Pokémon por nombre.
+
+Filtra los Pokémon por tipo utilizando el menú desplegable.
+
+Haz clic en la tarjeta de un Pokémon para ver información detallada en una ventana emergente.
+
+# Funcionalidades
+Exploración de Pokémon de las generaciones 1 y 2.
+Búsqueda de Pokémon por nombre.
+Filtrado de Pokémon por tipo.
+Ordenamiento de Pokémon por nombre o número de Pokédex.
+Información detallada de Pokémon en una ventana emergente.
+Interfaz de usuario amigable y atractiva.
+
+# Tecnologías Utilizadas
+JavaScript (Vanilla)
+HTML5
+CSS3
+Jest (para pruebas)
+Git
+Bash
+GitHub
+# Pruebas
+El proyecto incluye pruebas unitarias realizadas con Jest para garantizar el correcto funcionamiento de las funciones y componentes principales.
+
+Para ejecutar las pruebas, sigue estos pasos:
+
+Abre una terminal y navega al directorio del proyecto.
+
+Ejecuta el siguiente comando:
+
+npm test
+
+Jest ejecutará todas las pruebas y proporcionará resultados detallados.
+
+# Proceso 
+## Investigación de usuario
+¿Quiénes son los principales usuarios de producto?
+➡️ Maestros Pokémon (Jugadores de Pokémon Go!), usuarios interesados en la industria de Pokémon.
+¿Cuáles son los objetivos de estas usuarias en relación con el producto?
+➡️ Mejorar la experiencia del juego, obtener información acerca de los pokemones para desarrollarse mejor como jugadoras.
+¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
+➡️ Nombre, tipo, estadísticas, elementos, ataques, evoluciones.
+¿Cuándo utilizan o utilizarían el producto?
+➡️ En caso de requerir mayor información acerca de los pokemones.
+
+
+## Prototipo de baja y alta fidelidad
+
+![Prototipo de Baja Fidelidad](https://drive.google.com/drive/folders/1IuuPJCqRIeL0wnaUmEhjuipu8Sh3Do0z?usp=sharing)
+
+![Prototipo de alta Fidelidad](https://drive.google.com/file/d/1iD4JSJuz40JamNwCMJ3EWRF0B0hxtT_2/view?usp=sharing)
+
+## Testeo de usabilidad 
+Se realizo una encuesta en google forms para testear la usabilidad con usuarios de pokemon Go
+
+[Test de Usabilidad](https://forms.gle/aqUgaSirSVpqQo3s8)
+
+## Historias de Usuario
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Data Lovers
 
 ## Índice
