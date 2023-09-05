@@ -65,9 +65,31 @@ Se realizo una encuesta en google forms para testear la usabilidad con usuarios 
 
 [Test de Usabilidad](https://forms.gle/aqUgaSirSVpqQo3s8)
 
-## Historias de Usuario
+## Historias de Usuaria
 
+**Historia 1** 
+Como jugadora de Pokémon GO, quiero poder ver una cuadrícula o cartas de listado de Pokémon con sus nombres y números de Pokédex para conocer los Pokémon disponibles en el juego.
+**Criterios de aceptación**: La página muestra una cuadrícula de cartas o imágenes de Pokémon con sus nombres y números de Pokédex. La lista se puede ordenar de forma ascendente o descendente por el número de Pokédex o por el nombre del Pokémon.
+Se puede acceder a la página de detalles de cada Pokémon haciendo clic en su nombre.
+**Definición de terminado:** La cuadrícula de Pokémon se muestra correctamente con sus nombres y números de Pokédex.
+El usuario puede ordenar la lista según su preferencia y acceder a los detalles de cada Pokémon. 
 
+**Historia 2**  
+Como jugadora de Pokémon GO, quiero poder filtrar los Pokémon por tipo para encontrar rápidamente los de un tipo específico.
+**Criterios de aceptación:** Se muestra un menú desplegable con las opciones de tipos de Pokémon.
+Al seleccionar un tipo, la lista de Pokémon se actualiza automáticamente mostrando solo los Pokémon de ese tipo.
+Se proporciona un botón para restablecer el filtro y mostrar todos los Pokémon nuevamente.
+**Definición de terminado:** El menú desplegable muestra las opciones de tipos de Pokémon y se actualiza correctamente la lista al seleccionar un tipo. El filtro puede restablecerse y mostrar todos los Pokémon nuevamente.
+
+**Historia 3**
+Como jugadora de Pokémon GO, quiero poder buscar un Pokémon específico por su nombre o número de Pokédex
+**Criterios de aceptación:** Se proporciona un campo de búsqueda donde el usuario puede ingresar el nombre o número de Pokédex del Pokémon. Al hacer clic en "Buscar", se muestra el Pokémon correspondiente en la lista. La búsqueda es insensible a mayúsculas y minúsculas para mayor comodidad del usuario.
+**Definición de terminado:** El campo de búsqueda permite al usuario ingresar el nombre o número de Pokédex y muestra el Pokémon correspondiente en la lista. La búsqueda es insensible a mayúsculas y minúsculas.
+
+**Historia 4**
+Como jugadora de Pokémon GO, quiero ver información detallada de un Pokémon seleccionado, como su generación, acerca de, tipo, resistencias, debilidades y movimientos.
+**Criterios de aceptación:** Al hacer clic en el nombre de un Pokémon en la lista, se muestra una página de detalles con información detallada. La página de detalles muestra la generación del Pokémon, su descripción "acerca de", tipo(s), resistencias y debilidades. Se proporciona una lista de movimientos rápidos y movimientos especiales del Pokémon.
+**Definición de terminado:** Al hacer clic en el nombre de un Pokémon, se muestra la página de detalles con toda la información requerida. La información detallada incluye la generación, descripción "acerca de", tipo(s), resistencias, debilidades y movimientos del Pokémon.
 
 
 
